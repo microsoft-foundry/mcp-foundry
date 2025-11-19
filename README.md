@@ -42,6 +42,7 @@ The rest of this repo (including codebase) explains the now-deprecated MCP Serve
 | Category | Tool | Description |
 |---|---|---|
 | **Index** | `list_index_names` | Retrieve all names of indexes from the AI Search Service |
+|  | `list_indexes_with_descriptions` | Retrieve the names and descriptions of all indexes from the AI Search Service |
 |  | `list_index_schemas` | Retrieve all index schemas from the AI Search Service |
 |  | `retrieve_index_schema` | Retrieve the schema for a specific index from the AI Search Service |
 |  | `create_index` | Creates a new index |
@@ -185,7 +186,7 @@ See [example .env file](./clients/python/pydantic-ai/.env.example) for a sample 
 | -------------- | ----------------------------- | ---------------------------------- | ------------------------------------------------ |
 | **Model**      | `GITHUB_TOKEN`                | No                                 | GitHub token for testing models for free with rate limits. |
 | **Knowledge**  | `AZURE_AI_SEARCH_ENDPOINT`    | Always                             | The endpoint URL for your Azure AI Search service. It should look like this: `https://<your-search-service-name>.search.windows.net/`. |
-|                | `AZURE_AI_SEARCH_API_VERSION` | No                                 | API Version to use. Defaults to `2025-03-01-preview`. |
+|                | `AZURE_AI_SEARCH_API_VERSION` | No                                 | API Version to use. Defaults to `2025-05-01-preview`. |
 |                | `SEARCH_AUTHENTICATION_METHOD`| Always                             | `service-principal` or `api-search-key`.         |
 |                | `AZURE_TENANT_ID`             | Yes when using `service-principal` | The ID of your Azure Active Directory tenant.    |
 |                | `AZURE_CLIENT_ID`             | Yes when using `service-principal` | The ID of your Service Principal (app registration) |

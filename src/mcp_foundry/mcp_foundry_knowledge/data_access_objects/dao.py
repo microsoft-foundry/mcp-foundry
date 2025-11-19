@@ -123,6 +123,21 @@ class SearchIndexDao(SearchBaseDao):
 
         return results
 
+    def retrieve_indexes_with_descriptions(self) -> list[MutableMapping[str, Any]]:
+        """
+        Retrieves the names and descriptions of all search indexes.
+
+        Returns:
+            list[MutableMapping[str, Any]]: A list of dictionaries, each containing 'name' and 'description' 
+            keys for each search index. Description may be None if not set.
+        """
+        search_results: ItemPaged[SearchIndex] = self.client.list_indexes()
+
+        return [
+            {'name': index.name, 'description': index.description}
+            for index in search_results
+        ]
+
     def retrieve_index_schemas(self) -> list[MutableMapping[str, Any]]:
         """
         Retrieves the full schema definition for each search index.

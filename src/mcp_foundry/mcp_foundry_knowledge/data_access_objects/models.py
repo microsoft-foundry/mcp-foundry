@@ -44,6 +44,7 @@ class ScoringProfileSchema(BaseModel):
 
 class SearchIndexSchema(BaseModel):
     name: str
+    description: Optional[str] = None
     fields: List[SearchFieldSchema]
     suggesters: Optional[List[SuggesterSchema]] = None
     scoring_profiles: Optional[List[ScoringProfileSchema]] = None
@@ -64,6 +65,7 @@ def convert_pydantic_model_to_search_index(schema: SearchIndexSchema) -> SearchI
 
     return SearchIndex(
         name=schema.name,
+        description=schema.description,
         fields=fields,
         suggesters=suggesters or None,
         scoring_profiles=schema.scoring_profiles,
@@ -92,4 +94,3 @@ def convert_to_field_mappings(models: List[FieldMappingModel]) -> List[FieldMapp
         )
         for model in models
     ]
-

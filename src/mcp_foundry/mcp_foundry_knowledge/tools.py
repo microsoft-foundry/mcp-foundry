@@ -68,6 +68,18 @@ async def list_index_names() -> list[str]:
     dao = SearchIndexDao()
     return dao.retrieve_index_names()
 
+@mcp.tool(description="Retrieves the names and descriptions of all indexes")
+async def list_indexes_with_descriptions() -> list[dict[str, str | None]]:
+    """
+    Retrieves the names and descriptions of all indexes.
+
+    Returns:
+        list[dict[str, str | None]]: A list of dictionaries, each containing 'name' and 'description' 
+        keys for each search index. Description may be None if not set.
+    """
+    dao = SearchIndexDao()
+    return dao.retrieve_indexes_with_descriptions()
+
 @mcp.tool(description="Retrieves the schemas for all indexes ")
 async def list_index_schemas() -> list[OperationResult]:
     """
