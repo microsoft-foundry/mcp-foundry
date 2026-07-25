@@ -173,6 +173,34 @@ The rest of this repo (including codebase) explains the now-deprecated MCP Serve
 
 See [More examples for advanced setup](./clients/README.md) for more details on how to set up the MCP server.
 
+### Usage with GitHub Copilot CLI
+
+Use the Copilot CLI to interactively add the MCP server:
+
+```bash
+/mcp add
+```
+
+Alternatively, create or edit the configuration file `~/.copilot/mcp-config.json` and add:
+
+```json
+{
+  "mcpServers": {
+    "mcp_foundry_server": {
+      "command": "uvx",
+      "args": [
+        "--prerelease=allow",
+        "--from",
+        "git+https://github.com/azure-ai-foundry/mcp-foundry.git",
+        "run-azure-ai-foundry-mcp"
+      ]
+    }
+  }
+}
+```
+
+For more information, see the [Copilot CLI documentation](https://docs.github.com/en/copilot/concepts/agents/about-copilot-cli).
+
 ## Setting the Environment Variables
 
 To securely pass information to the MCP server, such as API keys, endpoints, and other sensitive data, you can use environment variables. This is especially important for tools that require authentication or access to external services.
