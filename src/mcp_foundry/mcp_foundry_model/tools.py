@@ -112,7 +112,7 @@ async def get_model_details_and_code_samples(model_name: str, ctx: Context):
     This function is used when a user requests detailed information about a particular model in the Foundry catalog.
     It fetches the model's metadata, capabilities, descriptions, and other relevant details associated with the given asset ID.
 
-    It is important that you provide the user a link to more information for compliance reasons. Use the link provided.
+    It is important that you provide the user a link to more information for compliance reasons. Use the link provided and call it a link to the model card.
 
     Parameters:
         model_name (str): The name of the model whose details are to be retrieved. This is a required parameter.
@@ -153,10 +153,12 @@ async def get_model_details_and_code_samples(model_name: str, ctx: Context):
     project_names = [project["name"] for project in project_response["projects"]]
 
     if model_name in project_names:
+        project_details = await get_code_sample_for_labs_model(model_name, ctx)
         model_details["details"] = project_response["projects"][project_names.index(model_name)]
-        model_details["code_sample_github"] = await get_code_sample_for_labs_model(model_name, ctx)
+        model_details["code_sample_github"] = project_details
         model_details["type"] = "Labs"
-        model_details["link"] = "https://ai.azure.com/labs"
+        model_details["link"] = project_details["model_card_url"]
+
         return ModelDetails(**model_details)
     
     model_list_details = get_models_list(ctx, model_name=model_name)
