@@ -420,7 +420,7 @@ def list_agent_evaluators() -> List[str]:
 
 
 @mcp.tool()
-def get_text_evaluator_requirements(evaluator_name: str = None) -> Dict:
+def get_text_evaluator_requirements(evaluator_name: Optional[str] = None) -> Dict:
     """
     Get the required input fields for a specific text evaluator or all text evaluators.
 
@@ -436,7 +436,7 @@ def get_text_evaluator_requirements(evaluator_name: str = None) -> Dict:
 
 
 @mcp.tool()
-def get_agent_evaluator_requirements(evaluator_name: str = None) -> Dict:
+def get_agent_evaluator_requirements(evaluator_name: Optional[str] = None) -> Dict:
     """
     Get the required input fields for a specific agent evaluator or all agent evaluators.
 
@@ -620,7 +620,7 @@ def run_text_eval(
 async def agent_query_and_evaluate(
     agent_id: str,
     query: str,
-    evaluator_names: List[str] = None,
+    evaluator_names: Optional[List[str]] = None,
     include_studio_url: bool = True,  # Option to include studio URL
 ) -> Dict:
     """

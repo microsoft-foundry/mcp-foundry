@@ -272,7 +272,7 @@ async def create_indexer(
         description: str,
         field_mappings: list[FieldMappingModel],
         output_field_mappings: list[FieldMappingModel],
-        skill_set_name: str = None
+        skill_set_name: Optional[str] = None
 ) -> OperationResult:
     """
     Creates a new indexer.

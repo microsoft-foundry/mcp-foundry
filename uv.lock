@@ -2401,7 +2401,7 @@ requires-dist = [
     { name = "azure-mgmt-cognitiveservices", specifier = ">=13.0.0" },
     { name = "azure-search-documents", specifier = ">=11.5.2" },
     { name = "jinja2", specifier = "~=3.0" },
-    { name = "mcp", specifier = ">=1.28.1" },
+    { name = "mcp", specifier = ">=1.28.1,<2" },
     { name = "requests", specifier = ">=2.32.3" },
 ]
 

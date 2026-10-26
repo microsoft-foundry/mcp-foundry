@@ -5,7 +5,7 @@ description = "MCP Server for Azure AI Foundry (experimental)"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-    "mcp>=1.28.1",
+    "mcp>=1.28.1,<2",
     "requests>=2.32.3",
     "azure-mgmt-cognitiveservices>=13.0.0",
     "azure-identity>=1.0",
